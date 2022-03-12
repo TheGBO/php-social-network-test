@@ -2,8 +2,11 @@
     include 'assets/php/db.php';
     include 'assets/php/import.php';
     check_login();
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE id=".$_GET['id']);
+    $safeid = mysqli_real_escape_string($conn,$_GET['id']);
+    $result = mysqli_query($conn, "SELECT * FROM users WHERE id='$safeid'");
     $usr_arr = mysqli_fetch_array($result);
+
+    $ismyprofile = $usr_arr['id'] == $_SESSION['id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,6 +29,10 @@
         
         <h1 class="profile-name"><?php echo $usr_arr['username'] ?></h1>
     </div>
+    <form action="uploadProfile.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="pfp-file" id="">
+        <button type="submit" class="styled-btn" name="submit">Update Profile Picture</button>
+    </form>
     <?php footer_import(); ?>
 </body>
 </html>
