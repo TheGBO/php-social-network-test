@@ -16,7 +16,7 @@
             <a href="login.php" class="footer-item">Login</a>
         </span> 
         <span class="fi-wrapper">
-            <a href="" class="footer-item">Register</a>
+            <a href="register.php" class="footer-item">Register</a>
         </span> 
     </footer>
 </body>

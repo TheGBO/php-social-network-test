@@ -62,7 +62,7 @@ footer{
     width: 100%;
     padding-top: 8px;
     padding-bottom: 8px;
-    font-size: 15px;
+    font-size: 25px;
     background-color: #2323233a;
     border: none;
     margin-bottom: 5px;
@@ -78,5 +78,38 @@ footer{
     border: none;
     background: linear-gradient(45deg, #ff6600,#b700ff);
     padding: 15px;
+    width: 100%;
+}
+
+.profile-info{
+    padding: 16px;
+    background-color: #222;
+    min-height: 70px;
+}
+
+.profile-pfp{
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+}
+
+.big-input{
+    border: none;
+    outline: none;
+    resize: none;
+    font-size: 22px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.151);
+    height: 230px;
+    border-bottom: #b700ff 3px solid;
+}
+
+.create-post-form{
+    padding: 16px;
+}
+
+.posts-container{
+    display: flex;
+    flex-direction: column;
     width: 100%;
 }
