@@ -1,5 +1,6 @@
 <?php
     include 'assets/php/import.php';
+    include 'assets/php/db.php';
     check_login();
 ?>
 <!DOCTYPE html>
@@ -17,10 +18,27 @@
         <button type="submit" class="styled-btn">Post</button>
     </form>
     <main class="posts-container">
-        <div class="post">
-            
-        </div>
+    <?php
+        $stmt = mysqli_query($conn, "SELECT * FROM posts LEFT JOIN users ON posts.owid = users.id");
+        while ($nr = mysqli_fetch_array($stmt)){
+            $pfp = "./assets/img/defaultpfp.png";
+            if(isset($nr['profile_picture'])){
+                $pfp = $nr['profile_picture'];
+            }
+
+            echo 
+            '
+            <div class="post">
+                <img src="'.$pfp.'" class="profile-pfp">
+                <h3 class="post-profile-name">'.$nr['username'].'</h3>
+                <p class="post-content">'.$nr['content'].'</p>
+            </div>
+            <br>
+            ';
+        }
+    ?>
     </main>
+    <br><br><br>
     <?php footer_import(); ?>
 </body>
 </html>

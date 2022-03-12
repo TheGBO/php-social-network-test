@@ -113,3 +113,9 @@ footer{
     flex-direction: column;
     width: 100%;
 }
+
+.post{
+    max-width: 100%;
+    background-color: #303030;
+    padding: 8px;
+}
