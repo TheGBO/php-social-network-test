@@ -11,34 +11,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Document</title>
+    <script src="assets/js/postApi.js"></script>
 </head>
 <body>
-    <form action="createPost.php" class="create-post-form" method="POST">
-        <textarea name="content" class="big-input" spellcheck="false"></textarea>
-        <button type="submit" class="styled-btn">Post</button>
+    <form id="post-form" class="create-post-form">
+        <textarea name="content" class="big-input" spellcheck="false" id="pf__content"></textarea>
+        <input type="button" onclick="submitPost()" class="styled-btn" value="Post"></input>
     </form>
-    <main class="posts-container">
-    <?php
-        $stmt = mysqli_query($conn, "SELECT * FROM posts LEFT JOIN users ON posts.owid = users.id");
-        while ($nr = mysqli_fetch_array($stmt)){
-            $pfp = "./assets/img/defaultpfp.png";
-            if(isset($nr['profile_picture'])){
-                $pfp = $nr['profile_picture'];
-            }
-
-            echo 
-            '
-            <div class="post">
-                <img src="'.$pfp.'" class="profile-pfp">
-                <h3 class="post-profile-name">'.$nr['username'].'</h3>
-                <p class="post-content">'.$nr['content'].'</p>
-            </div>
-            <br>
-            ';
-        }
-    ?>
+    <main class="posts-container" id="feed-posts-container">
+        
     </main>
-    <br><br><br>
+    <div class="spacer">
+        <br><br><br><br>
+    </div>
     <?php footer_import(); ?>
+    <script>
+        getPosts();
+    </script>
 </body>
 </html>
