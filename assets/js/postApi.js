@@ -6,7 +6,7 @@ function submitPost(){
         data.append(pair[0], pair[1]);
         console.log(pair);
     }
-    fetch('createPost.php', {
+    fetch('api.createpost.php', {
         method:'post',
         body:data
     }).then((val) => val.text()).then((body) => {
@@ -20,18 +20,18 @@ function submitPost(){
 
 function getPosts(){
     console.log("fetching posts");
-    fetch('feedApi.php', {
+    fetch('api.feed.php', {
         method:'get'
     }).then(val => val.text()).then((body) => {
         let data = JSON.parse(body)
         let fpc = document.getElementById('feed-posts-container');
         fpc.innerHTML = "";
         data.map((post) => {
-            fpc.innerHTML += 
+            fpc.innerHTML += /*html*/
             `
             <div class="post">
                 <img src="${post.profile_picture}" class="profile-pfp">
-                <h3 class="post-profile-name">${post.username}</h3>
+                <a href="profile.php?id=${post.owid}"><h3 class="post-profile-name">${post.username}</h3></a>
                 <p class="post-content">${post.content}</p>
             </div>
             `;

@@ -5,6 +5,7 @@
     padding: 0;
     font-family: 'Poppins', sans-serif;
     color: white;
+    text-decoration: none;
 }
 
 body{
@@ -93,6 +94,7 @@ footer{
     width: 64px;
     height: 64px;
     border-radius: 50%;
+    border: 0.5px solid rgba(92, 92, 92, 0.801);
 }
 
 .big-input{
@@ -120,4 +122,22 @@ footer{
     background-color: #303030;
     padding: 8px;
     margin-bottom: 8px;
+}
+
+.follow-btn{
+    background: linear-gradient(180deg, #4651e0, #2d35a8);
+    padding: 10px;
+    max-width: 100%;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.follow-btn:hover{
+    background: #282f97;
+
+}
+
+#follower-count{
+    background-color: rgba(0, 0, 0, 0.199);
+    padding: 10px;
 }

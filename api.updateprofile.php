@@ -34,7 +34,6 @@ if(isset($_POST['submit'])){
             $sql = "UPDATE users SET profile_picture = '$file_destination' WHERE id = ".$_SESSION['id'];
             mysqli_query($conn, $sql);
 
-            header("Location: profile.php?id=".$_SESSION['id']);
         }else{
             echo 'file too big!';
         }
@@ -42,3 +41,4 @@ if(isset($_POST['submit'])){
         echo 'Unallowed extension: '.$file_actual_ext;
     }
 }
+header("Location: profile.php?id=".$_SESSION['id']);

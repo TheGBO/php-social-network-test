@@ -25,8 +25,8 @@
         if(!is_null_or_empty_str($_POST['username']) && !is_null_or_empty_str($_POST['password'])){
             session_start();
             include 'assets/php/db.php';
-            $username = mysqli_escape_string($conn, trim($_POST['username']));
-            $password = mysqli_escape_string($conn, trim($_POST['password']));
+            $username = sanitize($conn, trim($_POST['username']));
+            $password = sanitize($conn, trim($_POST['password']));
             
             $query = "SELECT * FROM users WHERE username = '{$username}'";
             $result = mysqli_query($conn, $query);
