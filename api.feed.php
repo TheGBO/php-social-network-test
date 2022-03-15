@@ -22,7 +22,9 @@ while ($nr = mysqli_fetch_assoc($stmt)){
     }
     $nr['profile_picture'] = $pfp;
 
-    $post_arr[] = $nr;
+    if(!in_array($nr, $post_arr)){
+        $post_arr[] = $nr;
+    }
 }
 header('Content-Type: application/json; charset=utf-8');
 echo json_encode($post_arr);

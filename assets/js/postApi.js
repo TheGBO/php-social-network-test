@@ -6,13 +6,13 @@ function submitPost(){
         data.append(pair[0], pair[1]);
         console.log(pair);
     }
+    pfcon.value = "";
     fetch('api.createpost.php', {
         method:'post',
         body:data
     }).then((val) => val.text()).then((body) => {
         let data = JSON.parse(body);
         console.log(data);
-        pfcon.value = "";
         getPosts();
     });
     console.log(data);

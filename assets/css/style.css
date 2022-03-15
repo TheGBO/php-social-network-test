@@ -6,6 +6,8 @@
     font-family: 'Poppins', sans-serif;
     color: white;
     text-decoration: none;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 body{
@@ -140,4 +142,19 @@ footer{
 #follower-count{
     background-color: rgba(0, 0, 0, 0.199);
     padding: 10px;
+}
+
+.searchbar-header{
+    padding: 8px;
+}
+
+.profile-result{
+    display: flex;
+    flex-direction: row;
+    background-color: #242525;
+    padding: 8px;
+    margin: 8px;
+}
+.profile-result h1{
+    margin-left: 16px;
 }
